@@ -17,14 +17,15 @@ public class App {
 
             session.beginTransaction();
 
-            List<Person> list = session.createQuery("from Person where age > 20 and name like 'T%'")
-                    .getResultList();
+            List<Person> list = session.createQuery("from Person where age > 20 and name like 'T%'",
+                    Person.class).getResultList();
             for (Person person : list) {
                 System.out.println(person);
             }
 
-            session.createQuery("update Person set name='test' where age > 20").executeUpdate();
-            session.createQuery("delete Person where age < 20").executeUpdate();
+            session.createQuery("update Person set name='test' where age > 20", Person.class)
+                    .executeUpdate();
+            session.createQuery("delete Person where age < 20", Person.class).executeUpdate();
 
             session.getTransaction().commit();
         }
