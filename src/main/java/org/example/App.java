@@ -15,10 +15,12 @@ public class App {
 
             session.beginTransaction();
 
-            Person person = session.get(Person.class, 1L);
-            session.remove(person);
+            Person person = new Person("John Doe", 30);
+            session.persist(person);
 
             session.getTransaction().commit();
+
+            System.out.println(person);
         }
     }
 }
