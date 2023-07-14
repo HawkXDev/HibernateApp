@@ -25,13 +25,13 @@ public class App {
 
             session.persist(person);
 
-            Person person1 = session.get(Person.class, 11);
+            Person person1 = session.get(Person.class, 12);
             System.out.println(person1.getPassport().getPassportNumber());
 
-            Passport passport1 = session.get(Passport.class, 11);
+            Passport passport1 = session.get(Passport.class, 12);
             System.out.println(passport1.getPerson().getName());
 
-            Person person2 = session.get(Person.class, 11);
+            Person person2 = session.get(Person.class, 12);
             person2.getPassport().setPassportNumber(98760);
 
             session.remove(person2);
